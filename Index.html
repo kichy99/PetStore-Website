@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Website</title>
+    <link rel="stylesheet" href="/style2.css">
+    <link rel="stylesheet" href="/smallscreen2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Freeman&family=Jacquard+24&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Freeman&family=Jacquard+24&family=Oswald:wght@200..700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Freeman&family=Jacquard+24&family=Oswald:wght@200..700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Freeman&family=Jacquard+24&family=Oswald:wght@200..700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sacramento&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Freeman&family=Jacquard+24&family=Oswald:wght@200..700&family=Pacifico&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sacramento&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Freeman&family=Jacquard+24&family=Lilita+One&family=Oswald:wght@200..700&family=Pacifico&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sacramento&display=swap');
+
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+
+body {
+    height: 100vh;
+}
+
+header {
+    background-color: rgb(255, 209, 216);
+    height: 4rem;
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+header #logo{
+    width: 4rem;
+    padding: 0.3rem;
+}
+header #logo-div{
+    display: inline-flex;
+    margin-left: 1rem;
+    margin-top: -0.2rem;
+}
+header h3 {
+    font-size: 2rem;
+    /* margin-left: 1rem; */
+    margin-top: 1rem;
+    cursor: pointer;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header nav {
+    margin-right: 3rem;
+}
+
+header nav li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 8px 12px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+header nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+header nav a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: rgb(177, 12, 89);
+    display: block;
+    transition: 0.5s;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+header input {
+    padding: 0.3rem;
+    width: 95%;
+}
+
+header i {
+    cursor: pointer;
+}
+
+header i:hover {
+    transform: scale(1.2);
+}
+
+#search-container {
+    display: flex;
+    align-items: center;
+}
+header #search-container{
+    /* border: 2px solid black; */
+    display: none;
+}
+
+header #search-container .close {
+    margin-left: 0.5rem;
+    border: none;
+
+}
+
+.home-outer-container {
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    display: flex;
+    min-height: 100vh;
+}
+
+.home-container {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    margin-left: 1rem;
+}
+
+.Home img {
+    height: 47%;
+    width:100%;
+    border-radius: 1rem;
+    margin-top: 1.4rem;
+    box-shadow: 2px 2px 15px black;
+     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer; 
+    }
+
+.Home img:hover {
+transform: scale(1.01); /* Slightly enlarge the image on hover */
+box-shadow: 4px 4px 20px black; /* Increase the shadow on hover */
+}
+
+.Home img:active {
+transform: scale(0.98); /* Slightly shrink the image on click */
+box-shadow: 1px 1px 10px black; /* Reduce the shadow on click */
+}
+.Home #image-gallery{
+    /* border: 2px solid red; */
+   
+}
+
+.Home #one {
+    line-height: 1.5rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    background-color: rgba(242, 188, 234, 0.653);
+}
+
+#one span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Home h3{
+      font-family: "Pacifico", cursive;
+   font-size: 1.5rem;
+   font-weight:600;
+   display: inline;
+}
+.Home h3~i{
+    color: rgba(18, 1, 6, 0.6);
+    font-size: 2rem;
+    margin-left: 0.4rem;
+    /* border: 2px solid blue; */
+}
+.Home #two{
+    margin-top: 1rem;
+    line-height: 1.4rem;
+    font-size: 1rem;
+}
+#text {
+    line-height: 1.4rem;
+    font-size: 1rem;
+}
+
+#text li {
+    list-style: none;
+}
+
+#text1 {
+    color: rgb(255, 14, 159);
+    font-weight: 1000;
+    font-size: 4rem;
+}
+
+#text span {
+    color: rgb(255, 14, 159);
+    font-weight: 1000;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* about */
+.about-outer-container {
+    position: relative;
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    min-height: 100vh;
+    background-image: url("/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.about-container {
+    position: relative;
+    z-index: -1;
+    background-color: rgba(247, 240, 240, 0.812); 
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+
+.about-outer-container h2 {
+    font-size: 3rem;
+    font-family: "Cedarville Cursive", cursive;
+    /* border: 2px solid green; */
+}
+
+.about-container p{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 545;
+      /* font-family: "Sacramento", cursive; */
+    /* font-family: "Cedarville Cursive", cursive; */
+   
+   
+}
+
+/* contact */
+.contact-outer-container {
+    /* border: 3px solid yellow; */
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    min-height: 100vh;
+    background-color: rgba(242, 188, 234, 0.653);
+}
+
+.contact-outer-container h2 {
+    font-size: 3rem;
+    font-family: "Cedarville Cursive", cursive;
+    /* border: 2px solid green; */
+}
+.contact-container p{
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    font-weight: 545;
+      /* font-family: "Sacramento", cursive; */
+}
+.contact-container summary{
+    font-family: "Cedarville Cursive", cursive; /* Matching font style */
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    background-color: rgba(242, 188, 234, 0.653);
+    padding: 0.5rem 1rem; /* Padding around the summary */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 0.5rem; /* Rounded corners for the summary */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; /* Space between summaries */
+}
+.contact-container details{
+    /* background-color: hotpink; */
+    font-family: Georgia, serif;
+}
+.contact-container h4{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top:1rem;
+}
+.contact-container {
+    background-color: white; /* Light white background for the contact content */
+    padding: 1.3rem; /* Adjust padding as needed */
+    border-radius: 1rem; /* Rounded corners for the contact content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+}
+.contact-container p{
+    padding-left: 1rem;
+}
+
+.contact-container h4{
+    padding-left: 0.5rem;
+}
+
+#Contact #email{
+    font-size: 1rem;
+    padding: 0.2rem;
+    color: rgb(44, 44, 145);
+    transition: color 0.5s, transform 0.5s, text-shadow 0.5s;
+}
+
+#Contact #email:hover {
+    cursor: pointer;
+    /* color: #FF69B4; */
+    transform: scale(1.1); /* Slightly enlarge the text */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+   
+}
+#Contact #email:active {
+    transform: scale(0.98); /* Slightly shrink the image on click */
+    }
+
+.contact-container .icon {
+    font-size: 1.5rem; /* Adjust the size of the icons */
+    margin-right: 0.5rem; /* Add some space between icons */
+    margin-left: 0.5rem;
+    color: rgb(44, 44, 145);
+    transition: color 0.3s, transform 0.3s; /* Add transition effects for hover */
+}
+
+.contact-container.icon:hover {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+
+  
+}
+
+
+/* view */
+
+.view-outer-container {
+    padding-top: 4rem;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    /* min-height: 100vh; */
+    /* background-color: skyblue; */
+}
+.view-outer-container h2 {
+    font-size: 3rem;
+    font-family: "Cedarville Cursive", cursive;
+    /* border: 2px solid green; */
+}
+.view-container{
+    /* border: 2px solid black; */
+    min-height: 100vh;
+    /* margin: 0 auto; changes */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 40px;
+    /* visibility: hidden; */
+    
+}
+.view-container .view-container-one{
+   background-color: #fff;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.536);
+    overflow: hidden;
+}
+
+.view-container .view-container-one:hover{
+   transform: scale(1.05);
+   box-shadow: 1px 1px 10px black;
+   
+ }
+ 
+
+.view-container .view-container-one img{
+  width: 100%;
+  height: 60%;
+ /* padding: 10px; */
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ object-fit: cover;
+}
+#View .view-container-one h4{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.5rem;
+
+}
+#View .view-container-one p{
+    font-size: 0.8rem;
+    padding: 0.6rem;
+
+}
+#View .view-container-one a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+}
+
+
+
+/* desc container */
+
+.desc-container-one{
+    border: 1px solid #333;
+    /* z-index: -1; */
+    position: absolute;
+    height: 100vh;
+    width: 95vw;
+    margin-top: -53rem;
+    padding: 2rem;
+    box-shadow: 0px 0px 5px #333;
+    /* background-color: rgba(255, 209, 216, 0.175); */
+    background-color: #faeff5;
+    visibility: hidden;
+}
+.desc-container-one h3{
+    font-size: 2rem;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    word-spacing: 0.5rem;
+    /* border: 2px solid red; */
+    text-align: center;
+    margin-top: -2rem;
+}
+.desc-container-one img{
+    position: relative;
+    margin-top: 7rem;
+}
+.img-container-desc{
+    display: flex;
+}
+.img-container-desc img{
+    width: 30rem;
+    left: 58%;
+    margin-top: 8rem;
+}
+.head i{
+   font-size: 2rem;
+    cursor: grab;
+    color: pink;
+    margin-left: 65rem;
+    /* border: 3px solid black; */
+   
+}
+.head i:hover{
+color: rgb(250, 11, 155);
+}
+.desc-container-one .head{
+    /* border: 2px solid red; */
+}
+.desc-container-one .time{
+    margin-top: -26rem;
+    /* border: 2px solid salmon; */
+    /* margin-left: 15rem; */
+}
+.desc-container-one .time i{
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px black;
+    padding-left: 10rem;
+}
+.desc-container-one .time p{
+    font-size: 1rem;
+    /* margin-top: 0.2rem;
+    margin-bottom: 0.2rem; */
+    display: inline;
+}
+
+.desc-container-one .ingredients{
+    margin-top: 1.4rem;
+    h4{
+        font-family: "Lilita One", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 300;  
+        margin-bottom: 0.3rem;
+        margin-top: 4rem;
+    }
+    li{
+        font-size: 1rem;
+        font-style: italic;
+        line-height: 1.3rem;
+        list-style-position: inside;
+    }
+}
+.desc-container-one .instructions{
+    h4{
+        font-family: "Lilita One", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 300;  
+        margin-bottom: 0.4rem;
+        margin-top: 1.2rem;
+    }
+    li{
+        font-size: 1rem;
+        font-style: italic;
+        line-height: 1.3rem;
+        list-style-position: inside;
+       
+    }
+}
+ #exception{
+    display: block;
+   position: absolute;
+   /* font-family: "Lilita One", sans-serif; */
+   font-family: "Cedarville Cursive", cursive;
+    font-size: 3rem;
+    font-weight: 300;  
+    visibility: hidden;
+    z-index:-1;
+
+
+}
+
+
+/* footer */
+footer{
+    margin-top: 2rem;
+    background-color: rgb(255, 209, 216);
+    padding: 20px 0;
+    /* color: white; */
+    text-align: center;
+    font-weight: 600;
+}
+
+/* nav */
+/* .bar{
+    margin-left: 20rem;
+} */
+
+#small{
+    visibility: hidden;
+}
+#nav-links {
+   display: none;
+   
+}
+#bar{
+display: none;
+}
+#bar1{
+ display: none;
+}
+
+/* smallscreen */
+@media (min-width: 410px) and (max-width: 600px){ 
+    header {
+       min-height:max-content ; 
+        width: 100vw;
+        display: block;
+    }
+    header #logo{
+        width: 3rem;
+        padding: 0.3rem;
+    }
+    header #logo-div{
+        display: inline-flex;
+        margin-left: 1rem;
+        margin-top: -0.2rem;
+    }
+    header h3 {
+        font-size: 1.5rem;
+        /* margin-left: 1rem; */
+        margin-top: 1rem;
+        cursor: pointer;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    header nav {
+        margin-right: 3rem;
+    }
+    
+    header nav li {
+        list-style-type: none;
+        display: inline-block;
+        padding: 8px 12px;
+        font-family: "Oswald", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+    }
+
+/* home */
+.Home img{
+    height: 40%;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: -2rem;
+    /* display: none; */
+}
+.home-outer-container{
+    display: grid;
+    margin-left: 1rem;
+}
+.Home #one {
+margin-left: -2.5rem;
+margin-top: -50px;
+font-size: 0.8rem;
+}
+.Home h3{
+    font-size: 1.2rem;
+    margin-left: -3rem;
+    display: block;
+}
+.Home #two {
+    font-size: 0.85rem;
+    margin-left: -3rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+#text1{
+    font-size: 3rem;
+    margin-left: -3rem;
+}
+#text span {
+    font-size: 1rem;
+}
+#text li {
+    margin-left: -3rem;
+    text-align: justify;
+}
+
+    /* about */
+    .about-container p{
+        text-align: justify;
+        font-size: 1rem;
+        
+    }
+
+/* view */
+#view{
+    height: 100vh;
+}
+.view-outer-container {
+   
+}
+.view-outer-container h2 {
+    font-size: 1.8rem;
+    /* margin-top: -3rem; */
+}
+.view-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 40px;
+    row-gap: 40px;
+    margin-top: 2rem;
+    
+    
+}
+.view-container .view-container-one{
+   background-color: #fff;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.536);
+    overflow: hidden;
+}
+
+.view-container .view-container-one:hover{
+   transform: scale(1.05);
+   box-shadow: 1px 1px 10px black;
+   
+ }
+ 
+
+.view-container .view-container-one img{
+  width: 100%;
+  height: 60%;
+ /* padding: 10px; */
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ object-fit: cover;
+}
+#View .view-container-one h4{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.5rem;
+
+}
+#View .view-container-one p{
+    font-size: 0.8rem;
+    padding: 0.6rem;
+
+}
+#View .view-container-one a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+}
+
+
+
+    /* desc container */
+
+.desc-container-one{
+    /* border: 2px solid rgb(222, 99, 99); */
+    position: absolute;
+    width: 90vw;
+    /* margin-top: -65rem; */
+    margin-top: -106rem;
+   padding-top: 2rem;
+   padding-left: 1rem;
+    margin-left: -0.7rem;
+    visibility: hidden;
+   /* min-height: 60vh; */
+   height: 60vh;
+}
+.desc-container-one h3{
+    font-size: 1.3rem;
+    word-spacing: 0.2rem;
+    text-align: left;
+    margin-top: -2.5rem;
+}
+.desc-container-one img{
+    position: relative;
+    margin-top: 7rem;
+}
+.img-container-desc{
+    display: flex;
+    /* border: 5px solid red; */
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    left: 3%;
+    margin-top: 15rem;
+}
+
+.img-container-desc img{
+    width: 10rem;
+    left: 0%;
+}
+.head i{
+   font-size: 1.5rem;
+    margin-left: 20rem;
+}
+
+.desc-container-one .head{
+    /* border: 2px solid red; */
+}
+.desc-container-one .time{
+    margin-top: -26rem;
+    display: flex;
+    align-items: flex-start;
+}
+.desc-container-one .time i{
+    font-size: 1rem;
+    /* display: flex;
+    align-items: flex-end; */
+    padding-left: 1rem;
+    padding-right: 0.4rem;
+
+}
+.desc-container-one .time p{
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  
+}
+
+.desc-container-one .ingredients{
+    margin-top: -3rem;
+    h4{
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+        margin-top: 4rem;
+    }
+    li{
+        font-size: 0.7rem;
+        line-height: 1rem;
+    }
+}
+.desc-container-one .instructions{
+    h4{
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+        margin-top: 1.2rem;
+    }
+    li{
+        font-size: 0.7rem;
+        line-height: 1rem;
+    }
+}
+ #exception{
+    display: block;
+   position: absolute;
+   /* font-family: "Lilita One", sans-serif; */
+   font-family: "Cedarville Cursive", cursive;
+    font-size: 2rem;
+    font-weight: 300;  
+    visibility: hidden;
+    z-index:-1;
+
+
+}
+/* contact */
+.contact-container p{
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+            margin-left: -1rem;
+}
+    .contact-outer-container h2{
+font-size: 1.8rem;
+    }
+    .contact-container summary{
+        font-size: 1rem;
+    }
+    .contact-container summary~p{
+        font-size: 0.65rem;
+    }
+    #Contact #email {
+        font-size: 0.8rem;
+    }
+    #Contact #email :hover{
+transform: none;
+    }
+    .contact-container .icon{
+        font-size: 1rem;
+        margin-right: 0.1rem;
+        margin-left: 0.1rem;
+    }
+    #Contact{
+        min-height: 100vh;
+    }
+    .contact-container h4 {
+    font-size: 1.5rem;
+}
+/* navlink */
+#nav-links{
+    position: fixed;
+    background-color:rgba(245, 245, 245, 0.521);
+    height: 100vh;
+    width: 200px;
+    color: white;
+    /* top: 99%; */
+    top: 7%;
+    right: 0;
+    text-align: right;
+    z-index: 1;
+    /* border: 4px solid red; */
+    display: block;
+    visibility: hidden;
+}
+
+#nav-links li{
+    display: block;
+    
+}
+#nav-links li a{
+    text-decoration: none;
+    }
+#nav-links li a:visited{
+    color: rgb(43, 42, 42);
+    }
+
+nav{
+    display: inline;
+    
+}
+#small{
+  display: block;  
+  visibility: visible;
+}
+#nav {
+    border: 3px solid red;
+    visibility: hidden;
+}
+
+#cross{
+    position: absolute;
+    left: 10%;
+    top: 1rem;
+   padding: 0.3rem;
+    background-color:rgb(209, 7, 132);
+
+}
+#bar{
+    position: fixed;
+    right: 5%;
+    top: 3%;
+    /* visibility: visible; */
+    display: block;
+    z-index: 3;
+}
+#bar1{
+    position: fixed;
+    right: 5%;
+    top: 3%;
+    z-index: 1;
+    display: block;
+    /* visibility: visible; */
+}
+
+/* uhriuwh */
+/* #nav-links {
+    margin-right: 3rem;
+} */
+
+#nav-links li {
+    list-style-type: none;
+    /* display: inline-block; */
+    padding: 8px 12px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+/* #nav-links a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: rgb(177, 12, 89);
+    display: block;
+    transition: 0.5s;
+} */
+
+/* #nav-links a:hover::after {
+    width: 100%;
+} */
+}
+
+</style>
+</head>
+
+<body>
+    <header>
+        <div id="logo-div">
+        <img src="/cookbook.png" alt="icon" id="logo">
+        <h3>Pawsome Meals</h3>
+    </div>
+        <nav id="nav-one">
+            
+            <div id="nav">
+                <!-- <i class="fa-solid fa-x" onclick="hideMenu()"></i> -->
+                <ul>
+                    
+                    <li> <a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <!-- <li><a href="#Add">Add Recipes</a></li> -->
+                    <!-- <li><a href="#Kids Menu">Kids Recipes</a></li> -->
+                    <li><a href="#View">View Recipes</a></li>
+                    <li><a href="#Contact">Contact Me</a></li>
+                    <i class="fa-solid fa-magnifying-glass" id="magnifying-glass"></i>
+                  
+                </ul>
+                <!-- <i class="fa-solid fa-bars bar" onclick="showMenu()"></i> -->
+            </div>
+            <div id="search-container">
+                <input type="search" name="search" id="search" placeholder="Search here for recipes..." onkeyup="myFunction()">
+                <i class="fa-solid fa-x close" id="close"></i>
+            </div>
+        </nav>
+
+    </header>
+    <nav>
+        <div class="nav-links" id="nav-links" >
+            <!-- <i class="fa-solid fa-x" onclick="hideMenu()" id="cross"></i> -->
+            <div class="list-container">
+                <ul>
+                    <li> <a href="#Home" id="home">Home</a></li>
+                <li><a href="#About" id="about">About</a></li>
+                <li><a href="#View" id="viewsmall">View Recipes</a></li>
+                <li><a href="#Contact" id="contact">Contact Me</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()" id="bar"></i>
+        <i class="fa-solid fa-bars"  id="bar1"></i>
+    </nav>
+
+<section id="Home" class="Home">
+   <div class="home-outer-container">
+    <!-- <h2>Home</h2> -->
+    <div id="image-gallery">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="home-img">
+    <!-- <img src="https://media.istockphoto.com/id/2149504650/photo/cute-bengal-cat-licks-cookie-dough-on-the-table.jpg?s=2048x2048&w=is&k=20&c=TjTU2I6vRKovM0l3Qp6X85WOcGKR-xf88MYOqterZDM=" alt="home2-img"> -->
+    <img src="https://media.istockphoto.com/id/1137592020/photo/preparing-natural-food-for-pets.jpg?s=2048x2048&w=is&k=20&c=Zw5J44uIWm5ASpGW6SfwQlsvJ70UR4OMRWLF6fH7Vz0=" alt="">
+</div>
+    <div class="home-container" id="home-container">
+        <p id="one">
+            “Cooking is like painting or writing a song. Just as there are only so many notes or colors, there are only so many flavors—it’s how you combine them that sets you apart.”
+<span>– Wolfgang Puck</span>
+        </p>
+        <br>
+        <h3>Welcome to a Healthier, Happier Mealtime for Your Pets! <i class="fa-solid fa-paw"></i></h3>
+    <p id="two">
+        At Pawsome Meals, we believe that our furry friends deserve the very best when it comes to their nutrition. Just like us, cats and dogs thrive on wholesome, natural ingredients that nourish their bodies and delight their taste buds. That's why we've created a collection of homemade recipes designed specifically for your beloved pets.
+
+        Preparing homemade food for your cats and dogs not only allows you to control the quality and freshness of their meals but also ensures that they are getting the nutrients they need to live a vibrant and healthy life. Our recipes are crafted with love and care, using simple, natural ingredients that you can trust.
+        
+        From delicious dinners to tasty treats, each recipe is balanced to meet the unique dietary needs of cats and dogs. Whether you're looking to supplement your pet's diet with nutritious homemade meals or want to treat them to something special, you'll find plenty of inspiration in our collection.
+        
+        Join us on a journey to better pet health and happiness through homemade food. Let's make mealtime a moment of joy and nourishment for your furry family members.
+        
+        
+        <br>
+       
+        <p id="text1">What's to love:</p>
+<ul id="text">
+    
+    <li><span>Tail-Wagging Goodness:</span> Our recipes are designed to make your pets' tails wag with delight, offering delicious and nutritious options they’ll love.</li>
+    <li><span>Nutrition You Can Trust:</span> Each recipe is carefully crafted to ensure your pets get all the essential nutrients they need for a healthy, happy life.</li>
+    <li><span>Variety for Every Palate: </span>From savory stews to crunchy treats, our diverse range of recipes caters to every taste and dietary need, ensuring there's something for every furry friend.</li>
+    <li><span>Easy and Fun to Make: </span>Our step-by-step recipes are easy to follow, making mealtime prep a fun and rewarding experience for both you and your pets.</li>
+    <li><span>Affordable and Accessible:</span>We focus on using low-cost, easily accessible ingredients without sacrificing quality or flavor, making it easy to provide the best for your pets without breaking the bank.
+    </li>
+    <li><span>Bonding Through Cooking: </span>Cooking for your pets is a great way to bond and show your love, creating a special connection through the joy of homemade meals.</li>
+</ul>
+        
+    </p>
+</div>
+   </div>
+</section>
+<section id="About">
+    <div class="about-outer-container">
+        <h2>About</h2>
+        <div class="about-container">
+            <p>Our mission is to provide pet owners with a reliable source of nutritious, homemade recipes that cater to the unique dietary needs of cats and dogs. At Pawsome Meals, we understand that our pets are family, and they deserve the very best when it comes to their meals.
+
+                We believe that preparing homemade food for your pets allows you to control the quality and freshness of their meals, ensuring they receive the essential nutrients they need to thrive. Our collection of recipes is crafted with love and care, using simple, natural ingredients that you can trust. From hearty dinners to tasty treats, each recipe is designed to make your pets' tails wag with delight and support their overall well-being.
+                
+                On our website, you’ll find a variety of recipes that cater to different tastes and dietary needs. Whether you're looking to supplement your pet's diet with nutritious homemade meals or want to treat them to something special, Pawsome Meals has something for every furry friend. Our step-by-step recipes are easy to follow, making mealtime prep a fun and rewarding experience for both you and your pets.
+                
+                At Pawsome Meals, we focus on using affordable and accessible ingredients without sacrificing quality or flavor. We believe that providing the best for your pets shouldn't break the bank. Our goal is to make every meal a moment of joy and connection, strengthening the bond between you and your pets through the joy of homemade food.
+                
+                Join us on this journey to better pet health and happiness. Let’s make mealtime a moment of nourishment and love for your furry family members. Thank you for being a part of our community and for choosing Pawsome Meals to support your pets' well-being.
+                <i class="fa-solid fa-paw"></i>
+                <!-- <img src="/bg.jpg" alt="Background" class="background-image"> -->
+                </p>
+    </div>
+    
+       </div>
+</section>
+<section id="View">
+    <div class="view-outer-container">
+        <h2>View Recipes</h2>
+
+        <div id="exception">
+            <h4>Sorry, the recipe you are looking for is not available</h4>
+        </div>
+        
+        <div class="view-container" id="view-container">
+            <div class="view-container-one">
+                <img src="https://cdn.shopify.com/s/files/1/0565/8021/0861/files/img-2_1e33fd13-9a26-4805-a03d-b0253326b5d2_1000x.jpg?v=1711825391" alt="catfood1">
+                <h4>Chicken And Rice Dry Cat Food</h4>
+                <p>This recipe combines lean protein from cooked chicken, brown rice for complex carbohydrates, dry cat food for added nutrients, and mixed vegetables for fiber and vitamins.</p>
+                <a href="#View" onclick="ViewRecipe()"  class="view-recipe-btn">View Recipe</a>
+               
+            </div>
+            <div class="view-container-one" id="two">
+                <img src="https://cdn.shopify.com/s/files/1/0565/8021/0861/files/img-5_4348a4ae-d6e2-492d-aea8-8bafe6e6fa5f_1000x.jpg?v=1711825753" alt="catfood2">
+                <h4>Mutton And Lentil Dry Cat Food</h4>
+                <p>This recipe incorporates mutton as the protein, combined with lentils for added fiber and nutrients, dry cat food for a balanced diet, and mixed vegetables for essential vitamins and minerals.</p>
+                <a href="#View" onclick="ViewRecipe2()"  class="view-recipe-btn">View Recipe</a>
+               
+            </div>
+            <div class="view-container-one" id="three">
+                <img src="https://cdn.shopify.com/s/files/1/0565/8021/0861/files/img-4_73bdd619-c231-492a-8ab9-b9b2f3415fa2_1000x.jpg?v=1711825578" alt="catfood3">
+                <h4> Mutton And Sweet Potato Wet Cat Food</h4>
+                <p>This recipe features mutton as the protein, combined with the nutrient-rich sweet potato, wet cat food for added moisture and nutrients, and mixed vegetables for fiber and vitamins.
+                </p>
+                <a href="#View"  class="view-recipe-btn" onclick="ViewRecipe3()" >View Recipe</a>
+               
+            </div>
+            <div class="view-container-one" id="four">
+                <img src="https://cdn.shopify.com/s/files/1/0565/8021/0861/files/img-3_81ebc0b7-4ed2-4fa5-b34b-61ad62574cac_1000x.jpg?v=1711825474" alt="catfood4">
+                <h4> Local Fish And Rice Wet Cat Food
+                </h4>
+                <p>This recipe incorporates localfish as the protein, mixed with brown rice for carbohydrates, wet cat food for moisture and nutrients, and mixed vegetables for fiber and vitamins.</p>
+                <a href="#View"  class="view-recipe-btn" onclick="ViewRecipe4()" >View Recipe</a>
+               
+            </div>
+            </div>
+
+        <!-- desc container -->
+        <div class="desc-container">
+      
+        <div class="desc-container">
+            <div class="desc-container-one" id="one" >
+                <div class="head">
+                     <i class="fa-solid fa-square-xmark close-desc" id="close-desc"></i>
+                <h3>Chicken And Rice Dry Cat Food</h3>
+                
+                <div class="img-container-desc">
+                    <img src="https://media.istockphoto.com/id/607748384/photo/healthy-wet-cat-food-with-large-copy-space.jpg?s=2048x2048&w=is&k=20&c=tUQEWxt0bZs505sBCY9lthKlXD6bhI_0Uz_mJc_XNOc=" alt="food1">
+                </div>
+            </div>
+            <div class="time">
+                <i class="fa-solid fa-clock" style="color: #ea7eec;"></i>
+            <p>Estimated time: 30 mins</p>
+            <i class="fa-solid fa-cat" style="color: #ea7eec;"></i>
+            <p>Servings: 2 cats</p>
+            <i class="fa-solid fa-calendar-days" style="color: #ea7eec;"></i>
+            <p> Lasting: 3 days refrigerated</p>
+            </div>
+            <div class="ingredients">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>1 cup cooked chicken (boiled or grilled, without bones)</li>
+                    <li>1 cup cooked brown rice</li>
+                    <li>1/4 cup high-quality dry cat food</li>
+                    <li>1/4 cup mixed vegetables (carrots, peas, and spinach)</li>
+                    <li>1 tablespoon olive oil (optional)</li>
+                </ul>
+           
+            </div>
+            <div class="instructions">
+                <h4>Instructions</h4>
+                <ul>
+                    <li>Mash the cooked chicken and mix it with cooked rice.</li>
+                    <li>Add the dry cat food and mixed vegetables.</li>
+                    <li>Drizzle with olive oil (if using) and mix well.</li>
+                    <li>Serve in small portions, refrigerating any leftovers for up to 3 days.</li>
+                </ul>
+            </div>
+            </div>
+
+
+        </div>
+
+        <div class="desc-container">
+            <div class="desc-container-one" id="two" >
+                <div class="head">
+                     <i class="fa-solid fa-square-xmark close-desc" id="close-desc2"></i>
+                <h3>Mutton And Lentil Dry Cat Food</h3>
+                
+                <div class="img-container-desc">
+                    <img src="https://media.istockphoto.com/id/607747908/photo/healthy-wet-cat-food.jpg?s=2048x2048&w=is&k=20&c=SRMiPuzpXiyWjg-OJ47iA5sRsx0kBsnXwzOcUnQkYNQ=" alt="food2">
+                </div>
+            </div>
+            <div class="time">
+                <i class="fa-solid fa-clock" style="color: #ea7eec;"></i>
+            <p>Estimated time: 30 mins</p>
+            <i class="fa-solid fa-cat" style="color: #ea7eec;"></i>
+            <p>Servings: 2 cats</p>
+            <i class="fa-solid fa-calendar-days" style="color: #ea7eec;"></i>
+            <p> Lasting: 3 days refrigerated</p>
+            </div>
+            <div class="ingredients">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>1 cup cooked mutton (boiled, without bones)</li>
+                    <li>1/2 cup cooked lentils (masoor dal)</li>
+                    <li>1/4 cup high-quality dry cat food</li>
+                    <li>1/4 cup mixed vegetables (carrots, peas, and spinach)</li>
+                    <li>1 tablespoon olive oil (optional)</li>
+                </ul>
+           
+            </div>
+            <div class="instructions">
+                <h4>Instructions</h4>
+                <ul>
+                    <li>Mash the cooked mutton and mix it with cooked lentils.</li>
+                    <li>Add the dry cat food and mixed vegetables.</li>
+                    <li>Drizzle with olive oil (if using) and mix well.</li>
+                    <li>Serve in small portions, refrigerating any leftovers for up to 3 days.</li>
+                </ul>
+            </div>
+            </div>
+
+
+        </div>
+
+        <div class="desc-container">
+            <div class="desc-container-one" id="three" >
+                <div class="head">
+                     <i class="fa-solid fa-square-xmark close-desc" id="close-desc3"></i>
+                <h3>Mutton And Sweet Potato Wet Cat Food</h3>
+                
+                <div class="img-container-desc">
+                    <img src="https://plus.unsplash.com/premium_photo-1667428304126-52e44e315dab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="food3">
+                </div>
+            </div>
+            <div class="time">
+                <i class="fa-solid fa-clock" style="color: #ea7eec;"></i>
+            <p>Estimated time: 45 mins</p>
+            <i class="fa-solid fa-cat" style="color: #ea7eec;"></i>
+            <p>Servings: 2 cats</p>
+            <i class="fa-solid fa-calendar-days" style="color: #ea7eec;"></i>
+            <p> Lasting: 3 days refrigerated</p>
+            </div>
+            <div class="ingredients">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>1 cup cooked mutton (boiled, without bones)</li>
+                    <li>1/2 cup cooked sweet potato (shakarkandi)</li>
+                    <li>1/4 cup high-quality dry cat food</li>
+                    <li>1/4 cup mixed vegetables (carrots, peas, and spinach)</li>
+                    <li>1 tablespoon olive oil (optional)</li>
+                </ul>
+           
+            </div>
+            <div class="instructions">
+                <h4>Instructions</h4>
+                <ul>
+                    <li>Mash the cooked mutton and mix it with cooked sweet potato.</li>
+                    <li>Add the wet cat food and mixed vegetables.</li>
+                    <li>Drizzle with olive oil (if using) and mix well.</li>
+                    <li>Serve in small portions, refrigerating any leftovers for up to 3 days.</li>
+                </ul>
+            </div>
+            </div>
+
+
+        </div>
+
+        <div class="desc-container">
+            <div class="desc-container-one" id="four" >
+                <div class="head">
+                     <i class="fa-solid fa-square-xmark close-desc" id="close-desc4"></i>
+                <h3>Local Fish And Rice Wet Cat Food</h3>
+                
+                <div class="img-container-desc">
+                    <img src="https://media.istockphoto.com/id/1359173333/photo/bengal-cat-reaches-for-food-with-its-paw.jpg?s=2048x2048&w=is&k=20&c=Rj5A4BWCNRrpay8lZfAHlkRtFvQZqyCT-9M6haLkZq4=" alt="food4">
+                </div>
+            </div>
+            <div class="time">
+                <i class="fa-solid fa-clock" style="color: #ea7eec;"></i>
+            <p>Estimated time: 45 mins</p>
+            <i class="fa-solid fa-cat" style="color: #ea7eec;"></i>
+            <p>Servings: 2 cats</p>
+            <i class="fa-solid fa-calendar-days" style="color: #ea7eec;"></i>
+            <p> Lasting: 2 days refrigerated</p>
+            </div>
+            <div class="ingredients">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>1 cup cooked local fish (basa, tilapia, or any other local fish)</li>
+                    <li>1/2 cup cooked brown rice</li>
+                    <li>1/4 cup wet cat food (canned or pouch)</li>
+                    <li>1/4 cup mixed vegetables (carrots, peas, and spinach)</li>
+                    <li>1 tablespoon olive oil (optional)</li>
+                </ul>
+           
+            </div>
+            <div class="instructions">
+                <h4>Instructions</h4>
+                <ul>
+                    <li>Mash the cooked fish and mix it with cooked rice.</li>
+                    <li>Add the wet cat food and mixed vegetables.</li>
+                    <li>Drizzle with olive oil (if using) and mix well.</li>
+                    <li>Serve in small portions, refrigerating any leftovers for up to 2 days.</li>
+                </ul>
+            </div>
+            </div>
+
+
+        </div>
+
+    
+    </div>
+</section>
+
+<section id="Contact">
+    <div class="contact-outer-container">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+<p>Thank you for visiting Pawsome Meals! I'm excited to connect with you. Whether you have a question about our recipes, need help with an order, or simply want to share a story about your furry friend, I'm here to listen and assist. </p>
+
+<details>
+    <summary>How to Reach Me</summary>
+    <p>Feel free to reach out via email at <a href="mailto:kclaudiahmt@gmail.com" target="_blank"><i class="fa-solid fa-envelope" id="email"></i></a>kclaudiahmt@gmail.com</p>
+</details>
+
+<details>
+    <summary>Business Hours</summary>
+    <p>I'm available to answer your messages from 9am-6pm. If you contact me outside these hours, I'll get back to you as soon as possible the next business day.</p>
+</details>
+
+<details>
+    <summary>Location</summary>
+    <p>Based in Nagaland, I serve pet owners nationwide who are passionate about providing their pets with nutritious homemade meals.</p>
+</details>
+
+<details>
+    <summary>Privacy and Security</summary>
+    <p>Rest assured, your privacy is important to me. Any information you provide will only be used for communication purposes related to your inquiry or order. For more details, please refer to our Privacy Policy.</p>
+</details>
+
+<h4>Stay Connected <i class="fa-solid fa-paw"></i></h4>
+<p>Stay updated on new recipes, tips for pet care, and special offers by following us on 
+    <a href="https://www.facebook.com/profile.php?id=100004709688026" target="_blank"><i class="fa-brands fa-facebook icon"></i></a>
+    <a href="https://www.linkedin.com/in/kichano-claudia-humtsoe/" target="_blank"><i class="fa-brands fa-linkedin icon"></i></a> 
+    <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa-brands fa-square-x-twitter icon"></i></a>
+    <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa-brands fa-square-instagram icon"></i></a>
+    <br> Join our community of pet lovers who prioritize their furry friends' health and happiness.
+</p>
+    </div>
+</section>
+<footer>
+    <div>
+        <p>&copy; 2024 Fruits Of Flavors</p>
+    </div>
+</footer>
+
+    <script src="script.js">
+
+var search = document.getElementById("magnifying-glass")
+var show= document.getElementById("search-container")
+search.addEventListener("click",()=>{
+    console.log("clicked");
+    show.style.display="flex"
+    document.getElementById("nav").style.display="none"
+})
+
+var close= document.getElementById("close")
+
+close.addEventListener("click", () =>{
+    console.log("clicking");
+    show.style.display="none";
+    document.getElementById("nav").style.display="flex"
+})
+
+// view recipe- desc container
+var close1= document.getElementById("close-desc")
+var desc1= document.getElementsByClassName("desc-container-one")[0]
+var view= document.getElementsByClassName("view-container")[0]
+
+close1.addEventListener("click", () =>{
+    console.log("description close");
+    desc1.style.visibility="hidden";
+    view.style.visibility="visible";
+})
+
+function ViewRecipe(){
+    console.log("view recipe");
+    view.style.visibility="hidden";
+    desc1.style.visibility="visible";
+
+}
+var close2=document.getElementById("close-desc2")
+var desc2= document.getElementsByClassName("desc-container-one")[1]
+var view2= document.getElementsByClassName("view-container")[0]
+
+close2.addEventListener("click", () =>{
+    desc2.style.visibility="hidden";
+    view2.style.visibility="visible";
+})
+
+function ViewRecipe2(){
+    console.log("view2 recipe");
+    view2.style.visibility="hidden";
+    desc2.style.visibility="visible";
+
+}
+var close3 = document.getElementById("close-desc3")
+var desc3 = document.getElementsByClassName("desc-container-one")[2];
+var view3 = document.getElementsByClassName("view-container")[0];
+
+close3.addEventListener("click", ()=>{
+    desc3.style.visibility="hidden";
+    view3.style.visibility="visible";
+})
+function ViewRecipe3(){
+    console.log("view3 recipe");
+    view3.style.visibility="hidden";
+    desc3.style.visibility="visible";
+}
+var close4 = document.getElementById("close-desc4")
+var desc4 = document.getElementsByClassName("desc-container-one")[3];
+var view4 = document.getElementsByClassName("view-container")[0];
+
+close4.addEventListener("click", ()=>{
+    desc4.style.visibility="hidden";
+    view4.style.visibility="visible";
+})
+function ViewRecipe4(){
+    console.log("view4 recipe");
+    view4.style.visibility="hidden";
+    desc4.style.visibility="visible";
+}
+
+// search
+const myFunction = () => {
+    let filter = document.getElementById("search").value.toUpperCase();
+    let search_recipe = document.getElementById("view-container");
+    let tr= search_recipe.getElementsByTagName('div');
+    let except= document.getElementById('exception');
+    let found = false; // Flag to check if any item matches the filter
+    let descContainers = document.getElementsByClassName('desc-container-one');
+
+    for(var i=0; i<tr.length; i++){
+        let a= tr[i].getElementsByTagName('h4')[0];
+        if(a){
+            let textValue= a.textContent || a.innerHTML;
+            if(textValue.toUpperCase().indexOf(filter) > -1){
+                tr[i].style.display="block";
+                found = true; // At least one match found
+            }else{
+                except.style.display="";
+                tr[i].style.display="none";
+            }
+        }
+    }
+      // Update the visibility of the exception message
+      if (found) {
+        except.style.visibility = "hidden";
+        except.style.display = "none"; // Optional, in case you need to hide it entirely
+        for (let j = 0; j < descContainers.length; j++) {
+            descContainers[j].style.marginTop = "-35rem"; 
+        }
+    } else {
+        except.style.visibility = "visible";
+        except.style.display = "block"; // Optional
+        descContainers[j].style.marginTop = "0"; 
+        
+    }
+}
+
+// navink
+var navLinks= document.getElementById("nav-links");
+let bar1 = document.getElementById('bar');
+let bar2 =  document.getElementById('bar1');
+function showMenu(){
+    navLinks.style.visibility="visible"
+    bar1.style.visibility = "hidden";
+    console.log("clicking");
+}
+function hideMenu(){
+    navLinks.style.visibility="hidden";
+    console.log("hidden");
+}
+function bars(){
+    navLinks.style.visibility="hidden"
+    bar1.style.visibility = "visible";
+    console.log("clicking1111");
+}
+bar2.addEventListener('click', bars)  
+
+// nav1
+var home= document.getElementById('home')
+var about= document.getElementById('about')
+var viewsmall = document.getElementById('viewsmall')
+var contact= document.getElementById('contact')
+
+home.addEventListener('click',bars)
+about.addEventListener('click',bars)
+viewsmall.addEventListener('click',bars)
+contact.addEventListener('click',bars)
+
+
+    </script>
+</body>
+</html>
